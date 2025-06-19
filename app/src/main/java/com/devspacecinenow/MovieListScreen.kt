@@ -3,11 +3,9 @@ package com.devspacecinenow
 
 import android.util.Log
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -30,11 +28,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 
 
 @Composable
-fun MovieListScreen() {
+fun MovieListScreen(navController: NavHostController) {
 
     var topRatedMovies by remember { mutableStateOf<List<MovieDto>>(emptyList()) }
 
@@ -100,8 +99,9 @@ fun MovieListScreen() {
         nowPlayingMovies = nowPlayingMovies,
         popularMovies = popularMovies,
         upcomingMovies = upcomingMovies
-    ) { itemClicked -> }
-
+    ) { itemClicked ->
+        navController.navigate(route = "movieDetail/${itemClicked.id}")
+    }
 }
 
 @Composable
@@ -127,25 +127,25 @@ private fun MovieListContent(
         MovieSession(
             label = "Top Rated",
             movieList = topRatedMovies,
-            onClick = { movieClicked -> }
+            onClick = onClick
         )
 
         MovieSession(
             label = "Now Playing",
             movieList = nowPlayingMovies,
-            onClick = { movieClicked -> }
+            onClick = onClick
         )
 
         MovieSession(
             label = "Popular",
             movieList = popularMovies,
-            onClick = { movieClicked -> }
+            onClick = onClick
         )
 
         MovieSession(
             label = "Upcoming",
             movieList = upcomingMovies,
-            onClick = { movieClicked -> }
+            onClick = onClick
         )
 
     }
