@@ -42,7 +42,7 @@ fun MovieListScreen(navController: NavHostController) {
             val apiService = RetrofitClient.retrofitInstance.create(ApiService::class.java)
             val response = apiService.getTopRatedMovies()
             Log.d("MovieListScreen", "Response receive: $response")
-            topRatedMovies = response.results.orEmpty()
+            topRatedMovies = response.results
             Log.d("MovieListScreen", "Movies List: $topRatedMovies")
         } catch (e: Exception) {
             Log.e("MovieListScreen", "Request error", e)
@@ -56,7 +56,7 @@ fun MovieListScreen(navController: NavHostController) {
             val apiService = RetrofitClient.retrofitInstance.create(ApiService::class.java)
             val response = apiService.getNowPlayingMovies()
             Log.d("MovieListScreen", "Response receive: $response")
-            nowPlayingMovies = response.results.orEmpty()
+            nowPlayingMovies = response.results
             Log.d("MovieListScreen", "Movies List: $nowPlayingMovies")
 
         } catch (e: Exception) {
@@ -71,7 +71,7 @@ fun MovieListScreen(navController: NavHostController) {
             val apiService = RetrofitClient.retrofitInstance.create(ApiService::class.java)
             val response = apiService.getPopularMovies()
             Log.d("MovieListScreen", "Response receive: $response")
-            popularMovies = response.results.orEmpty()
+            popularMovies = response.results
             Log.d("MovieListScreen", "Movies List: $popularMovies")
 
         } catch (e: Exception) {
@@ -86,7 +86,7 @@ fun MovieListScreen(navController: NavHostController) {
             val apiService = RetrofitClient.retrofitInstance.create(ApiService::class.java)
             val response = apiService.getUpcomingMovies()
             Log.d("MovieListScreen", "Response receive: $response")
-            upcomingMovies = response.results.orEmpty()
+            upcomingMovies = response.results
             Log.d("MovieListScreen", "Movie List: $upcomingMovies")
 
         } catch (e: Exception) {
