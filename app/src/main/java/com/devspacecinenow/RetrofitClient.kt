@@ -24,7 +24,7 @@ object RetrofitClient {
         }
 
     val retrofitInstance: Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl(BASE_URL)
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
