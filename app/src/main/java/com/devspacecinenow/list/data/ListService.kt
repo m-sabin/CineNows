@@ -1,12 +1,9 @@
-package com.devspacecinenow
+package com.devspacecinenow.list.data
 
-import com.devspacecinenow.common.model.MovieDto
 import com.devspacecinenow.common.model.MovieResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
 
-interface ApiService {
-
+interface ListService {
     @GET("movie/top_rated?language=en-US&page=1")
     suspend fun getTopRatedMovies(): MovieResponse
 
@@ -18,7 +15,4 @@ interface ApiService {
 
     @GET("movie/upcoming?language=en-US&page=1")
     suspend fun getUpcomingMovies(): MovieResponse
-
-    @GET("movie/{movie_id}?language=en-US")
-    suspend fun getMovieById(@Path("movie_id") movieId: String): MovieDto
 }

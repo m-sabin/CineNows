@@ -1,4 +1,4 @@
-package com.devspacecinenow
+package com.devspacecinenow.list.presentation.ui
 
 
 import android.util.Log
@@ -30,6 +30,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.devspacecinenow.ApiService
+import com.devspacecinenow.common.model.MovieDto
+import com.devspacecinenow.common.RetrofitClient
 
 
 @Composable

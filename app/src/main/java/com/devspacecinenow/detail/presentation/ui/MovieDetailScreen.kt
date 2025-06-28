@@ -1,4 +1,4 @@
-package com.devspacecinenow
+package com.devspacecinenow.detail.presentation.ui
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
@@ -26,6 +26,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
+import com.devspacecinenow.ApiService
+import com.devspacecinenow.common.RetrofitClient
+import com.devspacecinenow.common.model.MovieDto
 
 @Composable
 fun MovieDetailScreen(
